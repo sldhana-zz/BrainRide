@@ -1,0 +1,15 @@
+{
+    "name": "BrainRide",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "express": "2.5.5",
+        "ejs": ">= 0.0.1",
+        "request": ">=2.9.202",
+        "redis": ">=0.7.1",
+        "redis-url": ">=0.1.0"
+    },
+    "engine": {
+        "node": ">=0.6.17"
+    }
+}

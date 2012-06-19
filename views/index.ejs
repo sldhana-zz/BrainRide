@@ -1,0 +1,71 @@
+<div id="loading" data-role="page">
+</div>
+
+<script id="searchTemplate" type="text/template">
+    <header>
+        <h1>BrainRide</h1>
+        <a href="#" id="myCards" data-icon="star" class="ui-btn-right">My Cards</a>
+    </header>
+    <section id="searchBar">
+        <input type="search" id="term" placeholder="Find cards" />
+        <button id="termSearch">Search</button>
+    </section>
+    <section>
+        <ul data-role="listview" id="results" data-split-icon="delete"></ul>
+        <div id="noResults">
+        </div>
+    </section>
+	<nav id="pager">
+	    <ul>
+	        <li><a id="previousResults" data-icon="arrow-l" class="ui-disabled">Previous</a>
+	        <li><a id="nextResults" data-icon="arrow-r">Next</a>
+	    </ul>
+	</nav>
+ </script>
+ 
+
+<script id="cardsTemplate" type="text/template">
+    <a href="#quiz/{{ card_set_id }}" class="cardSet">
+        <h2>{{ title }}</h2>
+        <p>{{ description }}</p>
+        <p>Tags: {{ tags }}</p>
+    </a>
+</script>
+
+<script id="removeCardTemplate" type="text/template">
+    <a href="#{{ card_set_id }}" class="remove">Delete</a>
+</script>
+
+<script id="playerTemplate" type="text/template">
+	<div id="notification" class="ui-bar-e" data-role="header" data-position="inline">
+		<p></p>
+		<a href="#" data-icon="delete" id="closeNotification" class="ui-btn-right">Hide</a>
+	</div>
+    <div data-role="header" data-position="inline">
+        <a href="#" data-icon="back" id="back" class="ui-btn-left">Back</a>
+        <a href="#" data-icon="add" id="add" class="ui-btn-right">Add</a>
+        <h1 title="{{ title }}">{{ title }}</h1>
+        <div data-role="navbar">
+            <ul>
+                <li><a id="previous" href="#" data-icon="arrow-l" class="ui-disabled">Previous</a></li>
+                <li><a id="next" href="#" data-icon="arrow-r">Next</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div data-role="content">
+        <div id="card"></div>
+    </div>
+ </script>
+
+
+<script id="cardTemplate" type="text/template">
+    <div data-role="collapsible">
+        <h3>{{ question }}</h3>
+        <p> {{ answer }}</p>
+    </div>
+</script>
+
+<script id="noResultsTemplate" type="text/template">
+    <p>Oopsie Daisy!  Nothing found. Try another search.</p>
+</script>

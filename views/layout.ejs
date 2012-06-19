@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+  <head>
+    <title><%= title %></title>
+    <link href="/stylesheets/style.css" type="text/css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+  </head>
+  <body>
+    <%- body %>
+    <script src="/javascripts/lib/zepto.min.js"></script>
+    <!--<script src="/javascripts/config.js"></script>-->
+    <script src="/javascripts/lib/underscore.js"></script>
+    <script>
+        _.templateSettings = { interpolate : /\{\{(.+?)\}\}/g };
+    </script>
+    <script src="/javascripts/lib/backbone.js"></script>
+    <script src="/javascripts/lib/backbone.localStorage-min.js"></script>
+    <script src="/javascripts/script.js"></script>
+  </body>
+</html>
