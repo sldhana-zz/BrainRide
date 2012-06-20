@@ -3,15 +3,17 @@
 
 <script id="searchTemplate" type="text/template">
     <header>
-        <h1>BrainRide</h1>
-        <a href="#" id="myCards" data-icon="star" class="ui-btn-right">My Cards</a>
+    	<div class="dotted-line">
+        	<h1>BrainRide</h1>
+        	<a href="#" id="myCards" class="action-button">My Cards</a>
+    	</div>
     </header>
     <section id="searchBar">
-        <input type="search" id="term" placeholder="Find cards" />
+        <input type="search" class="text-input" id="term" placeholder="Find cards" />
         <button id="termSearch">Search</button>
     </section>
     <section>
-        <ul data-role="listview" id="results" data-split-icon="delete"></ul>
+        <ul id="results" class="list"></ul>
         <div id="noResults">
         </div>
     </section>
@@ -28,7 +30,7 @@
     <a href="#quiz/{{ card_set_id }}" class="cardSet">
         <h2>{{ title }}</h2>
         <p>{{ description }}</p>
-        <p>Tags: {{ tags }}</p>
+        <p><small>Tags: {{ tags }}</small></p>
     </a>
 </script>
 

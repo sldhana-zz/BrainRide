@@ -44,11 +44,11 @@ BrainRide.Views.Header = Backbone.View.extend({
 	},
 
 	events : {
-		'vmouseup #termSearch' : 'getSearchTerm',
-		'vmouseup #search' : 'showSearch',
-		'vmouseup #previousResults' : 'paginatePrevious',
-		'vmouseup #nextResults' : 'paginateNext',
-		'vmouseup #myCards' : 'getSavedCards'
+		'click #termSearch' : 'getSearchTerm',
+		'click #search' : 'showSearch',
+		'click #previousResults' : 'paginatePrevious',
+		'click #nextResults' : 'paginateNext',
+		'click #myCards' : 'getSavedCards'
 	},
 
 	getSearchTerm : function(e) {
@@ -136,9 +136,6 @@ BrainRide.Views.Header = Backbone.View.extend({
 				personalCollection : personalCollection,
 				paginator : this.paginator
 			});
-
-			//jquery's method to show the styles
-			$('#results').listview('refresh');
 
 			//hide pager because we want to show all results
 			if(personalCollection) {
