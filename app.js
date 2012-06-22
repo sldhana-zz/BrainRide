@@ -41,8 +41,8 @@ app.configure('production', function(){
 // Routes
 
 //app.get('/', routes.index);
-//var port = process.env.PORT || 3000; -- heroku
-var port = process.enc['app_port'] || 3000;
+var port = process.env.PORT || 3000;
+//var port = process.enc['app_port'] || 3000;
 
 app.listen(port);
 console.log("Express server listening on port %d in %s mode", port, app.settings.env);
