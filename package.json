@@ -9,7 +9,7 @@
         "redis": ">=0.7.2",
         "redis-url": ">=0.1.0"
     },
-    "engine": {
+    "engines": {
         "node": ">=0.6.17"
     }
 }
