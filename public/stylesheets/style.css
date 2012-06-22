@@ -3,8 +3,8 @@ html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,abbr,address
 
 body{
 	font-size: 100%;
-	background: #C8D0AB;
-	font-family: 'FuturaMdCnBTMedium',Arial,Helvetica,sans-serif;
+	background: #eaeaea;
+	font-family: Helvetica,Arial,sans-serif;
 }
 
 p{
@@ -15,21 +15,33 @@ section{
 	clear: both;
 }
 
+.float-right{float: right;}
+.float-left{float: left;}
+
+/* gradients */
+.black-gradient{
+	background: #111111;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#3c3c3c), to(#111111));
+   	background-image: -webkit-linear-gradient(top, #3c3c3c, #111111); 
+   	background-image: -moz-linear-gradient(top, #3c3c3c, #111111);
+   	background-image: -ms-linear-gradient(top, #3c3c3c, #111111);
+   	background-image: -o-linear-gradient(top, #3c3c3c, #111111);
+}
+
 /*header*/
 header{
-	width: 100%;
-	background: #585643;
+	width: 100%;	
 	float: left;
 	font-family: 'FuturaMdCnBTMedium',Arial,Helvetica,sans-serif;
 }
 
 header .dotted-line{
-	width: 96%;
+	width: 98%;
 	margin: 2px 0;
-	padding: 5px 2%;
+	padding: 5px 1%;
 	float: left;
-	border-top: 1px dashed #84805E;
-	border-bottom: 1px dashed #84805E;
+	border-top: 1px dashed #82652C;
+	border-bottom: 1px dashed #82652C;
 }
 
 header h1{
@@ -48,7 +60,15 @@ header a{
 	width: 96%;
 	float: left;
 	padding: 20px 2%;
-	background: #585643;
+	border: 1px solid #B3B3B3;
+	border-left: none;
+	border-right: none;
+	background: #E9EAEB;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#F0F0F0), to(#E9EAEB));
+   	background-image: -webkit-linear-gradient(top, #F0F0F0, #E9EAEB); 
+   	background-image: -moz-linear-gradient(top, #F0F0F0, #E9EAEB);
+   	background-image: -ms-linear-gradient(top, #F0F0F0, #E9EAEB);
+   	background-image: -o-linear-gradient(top, #F0F0F0, #E9EAEB);
 }
 
 /*common user interface elements */
@@ -69,20 +89,63 @@ header a{
 	box-shadow: 2px 2px 1px #AA361E;
 }
 
-/* input elements */
-input[type="text"], .text-input{
-	width: 60%;
-	padding: 6px 5px;
-	border-radius: 5px;
-	border: 1px solid #77674A;
-	-moz-box-shadow: 2px 2px 1px #68664F;
-	-webkit-box-shadow: 2px 2px 1px #68664F;
-	box-shadow: 2px 2px 1px #68664F;
+
+
+.task-button{
+	display: block;
+	padding: 0.5em 0;
+	cursor: pointer;
+	font-size: 0.9em;
+	text-align: center;
+	text-shadow: 0 1px 0 #FFFFFF;
+	border-radius: 10px;
+	border: 1px solid #CCCCCC;
+	color: #000000;
+	background: #efefef;	
 }
 
-input[type="text"]:focus, .text-input:focus{
+.task-button:hover{
+	opacity: 0.5em;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);	
+}
+
+/* searchArea */
+#searchBar{
+	position: relative;
+}
+
+.searchArea{
+	padding: 4px 5px;
+	margin: 0 0 10px 0;
+	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
+	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
+	box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
+	border-radius: 9px;
+	position: relative;
+}
+
+.searchArea:after{
+	content: "";
+	height: 18px;
+	width: 18px;
+	top: 50%;
+	left: 7px;
+	margin: -9px 0 0 0;
+	position: absolute;
+	background: url("icons-18-white.png") -612px 50% no-repeat rgba(0, 0, 0, 0.2);
+    border-radius: 9px 9px 9px 9px;
+}
+
+/* input elements */
+input[type="text"], .text-input{
+	width: 98%;
+	padding: 0.4em 1em;
+	background: none;
+	border: none;
+	margin: 0 0 0 20px;
 	
 }
+
 
 /* list view */
 
@@ -90,39 +153,119 @@ input[type="text"]:focus, .text-input:focus{
 	padding: 10px 20px;
 	font-size: 0.9em;
 	background: #C1BFAA;
-	border-bottom: 1px dotted #A09E8B;
+	border-bottom: 1px dotted #cccccc;
 	-moz-box-shadow: 0 1px 5px #585643;
 	-webkit-box-shadow: 0 1px 5px #585643;
 	box-shadow: 0 1px 5px #585643;
-}
-
-.list li a{
-	text-decoration: none;
-	color: #5A5845;
+	text-shadow: 0 1px 1px #F6F6F6;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	background: #EEEEEE;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#FDFDFD), to(#EEEEEE));
+   	background-image: -webkit-linear-gradient(top, #FDFDFD, #EEEEEE); 
+   	background-image: -moz-linear-gradient(top, #FDFDFD, #EEEEEE);
+   	background-image: -ms-linear-gradient(top, #FDFDFD, #EEEEEE);
+   	background-image: -o-linear-gradient(top, #FDFDFD, #EEEEEE);
+   	color: #444444;
 }
 
 .list li:hover{
-	background-color: #C1BFAA; 
-   	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#AAA894), to(#C1BFAA));
-   	background-image: -webkit-linear-gradient(top, #AAA894, #C1BFAA); 
-   	background-image: -moz-linear-gradient(top, #AAA894, #C1BFAA);
-   	background-image: -ms-linear-gradient(top, #AAA894, #C1BFAA);
-   	background-image: -o-linear-gradient(top, #AAA894, #C1BFAA);
+	background: #DADADA;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#EDEDED), to(#DADADA));
+   	background-image: -webkit-linear-gradient(top, #EDEDED, #DADADA); 
+   	background-image: -moz-linear-gradient(top, #EDEDED, #DADADA);
+   	background-image: -ms-linear-gradient(top, #EDEDED, #DADADA);
+   	background-image: -o-linear-gradient(top, #EDEDED, #DADADA);
 }
 
-.list li:first-child{
-	border-top: 1px solid #BFC5A2;
+.list li a{
+	outline: none;
+	text-decoration: none;
+	color: #444444;
 }
 
 .list h2{
 	font-size: 1.2em;
 	margin: 0 0 5px 0;
-	color: #994834;
 }
 
+.list p{
+	font-size: 0.9em;
+}
 
 .list small{
-	font-size: 0.9em;
+	font-size: 0.8em;
 	font-style: italic;
 	margin: 5px 0 0 0;
 }
+
+/* pager */
+.pager ul {
+	width: 100%;
+	height: 50px;
+	float: left;
+	font-size: 0.9em;
+	font-weight: bold;
+	color: #ffffff;
+}
+
+.pager ul li{
+	float: left;
+	width: 50%;
+	cursor: pointer;
+}
+
+.pager ul li:hover{
+	background: #444444;
+	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#555555), to(#383838));
+   	background-image: -webkit-linear-gradient(top, #555555, #383838); 
+   	background-image: -moz-linear-gradient(top, #555555, #383838);
+   	background-image: -ms-linear-gradient(top, #555555, #383838);
+   	background-image: -o-linear-gradient(top, #555555, #383838);
+}
+
+.pager ul li a{
+	width: 98%;
+	padding: 0 0 0 2%;
+	height: 50px;
+	line-height: 50px;
+	display: block;
+	cursor: pointer;
+	border-right: 1px solid #000000;
+}
+
+.pager ul .next a{
+	padding: 0 2% 0 0;
+}
+
+
+.pager ul li:last-child a{
+	border-right: none;
+}
+
+.pager .arrow{
+	width: 18px;
+	height: 18px;
+	float: left;
+	margin: 14px 0 0 0;
+	border-radius: 9px 9px 9px 9px;
+	box-shadow: 0 1px 0 rgba(255, 255, 255, 0.4);
+	background: url(icons-18-white.png) no-repeat;
+}
+
+.pager .previous span{
+	margin-right: 5px;
+	background-position: -144px 50%;
+}
+
+.pager .next{
+	text-align: right;
+}
+
+.pager .next span{
+	float: right;
+	margin-left: 5px;
+	background-position: -108px 50%;
+}
+
+

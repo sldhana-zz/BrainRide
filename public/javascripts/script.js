@@ -227,8 +227,8 @@ BrainRide.Views.CardSetItem = Backbone.View.extend({
 		this.render();
 	},
 	events : {
-		'vmouseup .cardSet' : 'getCardSet',
-		'vmouseup .remove' : 'removeCardSet'
+		'click .cardSet' : 'getCardSet',
+		'click .remove' : 'removeCardSet'
 	},
 
 	render : function() {
@@ -292,11 +292,11 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 		this.render();
 	},
 	events : {
-		'vmouseup #previous' : 'getPreviousCard',
-		'vmouseup #next' : 'getNextCard',
-		'vmouseup #back' : 'showSearchResults',
-		'vmouseup #add' : 'addToLibrary',
-		'vmouseup #closeNotification': 'hideNotification'
+		'click #previous' : 'getPreviousCard',
+		'click #next' : 'getNextCard',
+		'click #back' : 'showSearchResults',
+		'click #add' : 'addToLibrary',
+		'click #closeNotification': 'hideNotification'
 	},
 
 	render : function() {
@@ -632,16 +632,17 @@ BrainRide.Routes.Application = Backbone.Router.extend({
 
 	showView : function(page) {
 		
-		$(page.el).attr('data-role', 'page');
+		//$(page.el).attr('data-role', 'page');
 		page.render();
+		$('#content').hide();
 		$('body').append($(page.el));
 
 		//var transition = $.mobile.defaultPageTransition;
-		
+		/*
 		if(this.firstPage){
 			transition = 'none';
 			this.firstPage = false;	
-		}
+		}*/
 		
 		/*$.mobile.changePage($(page.el), {
 			changeHash : false,

@@ -2,25 +2,27 @@
 </div>
 
 <script id="searchTemplate" type="text/template">
-    <header>
+    <header class="black-gradient">
     	<div class="dotted-line">
         	<h1>BrainRide</h1>
         	<a href="#" id="myCards" class="action-button">My Cards</a>
     	</div>
     </header>
     <section id="searchBar">
-        <input type="search" class="text-input" id="term" placeholder="Find cards" />
-        <button id="termSearch">Search</button>
+    	<div class="searchArea">
+    		<input type="search" class="text-input" id="term" placeholder="Find cards" />
+    	</div>
+        <a id="termSearch" class="task-button">Search</a>
     </section>
     <section>
         <ul id="results" class="list"></ul>
         <div id="noResults">
         </div>
     </section>
-	<nav id="pager">
-	    <ul>
-	        <li><a id="previousResults" data-icon="arrow-l" class="ui-disabled">Previous</a>
-	        <li><a id="nextResults" data-icon="arrow-r">Next</a>
+	<nav class="pager">
+	    <ul class="black-gradient">
+	        <li class="previous" id="previousResults"><a><span class="arrow">&nbsp;</span>Previous</a>
+	        <li class="next" id="nextResults"><a>Next<span class="arrow">&nbsp;</span></a>
 	    </ul>
 	</nav>
  </script>
@@ -43,17 +45,20 @@
 		<p></p>
 		<a href="#" data-icon="delete" id="closeNotification" class="ui-btn-right">Hide</a>
 	</div>
-    <div data-role="header" data-position="inline">
-        <a href="#" data-icon="back" id="back" class="ui-btn-left">Back</a>
-        <a href="#" data-icon="add" id="add" class="ui-btn-right">Add</a>
-        <h1 title="{{ title }}">{{ title }}</h1>
-        <div data-role="navbar">
-            <ul>
-                <li><a id="previous" href="#" data-icon="arrow-l" class="ui-disabled">Previous</a></li>
-                <li><a id="next" href="#" data-icon="arrow-r">Next</a></li>
-            </ul>
-        </div>
-    </div>
+	
+	<header class="black-gradient">
+    	<div class="dotted-line">
+        	<a href="#" id="back" class="action-button">Back</a>
+        	<h1 title="{{ title }}">{{ title }}</h1>
+        	<a href="#" id="add" class="action-button">Add</a>
+    	</div>
+    </header>
+	<nav class="pager">
+	    <ul class="black-gradient">
+	        <li id="previous" class="previous"><a><span class="arrow">&nbsp;</span>Previous</a>
+	        <li id="next" class="next"><a>Next<span class="arrow">&nbsp;</span></a>
+	    </ul>
+	</nav>
 
     <div data-role="content">
         <div id="card"></div>
