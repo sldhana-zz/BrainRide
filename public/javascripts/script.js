@@ -324,7 +324,10 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 	},
 
 	showSearchResults : function() {
+        $('#content').show();
+        $('#player').hide();	
 		/*$('#results').empty();
+		
 		$.mobile.changePage($('#content'), {
 			//reverse : true
 		});
@@ -332,13 +335,13 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 		$('#content').addClass('ui-page-active').show();
 		$('#termSearch').trigger('vmouseup');
 		*/
-		
+		/*
 		$.mobile.changePage($('#content'), {
 			//reverse : true
 		});
 		$('.ui-page-active').removeClass('ui-page-active');
 		$('#content').addClass('ui-page-active').show();
-		
+		*/
 	},
 
 	addToLibrary : function() {
