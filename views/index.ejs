@@ -5,7 +5,10 @@
     <header class="black-gradient">
     	<div class="dotted-line">
         	<h1>BrainRide</h1>
-        	<a href="#" id="myCards" class="action-button">My Cards</a>
+        	<a href="#" id="myCards" class="action-button btn-right">
+        		<span class="icon-bg favorites">&nbsp;</span>
+        		<span class="text">My Cards</span>
+        	</a>
     	</div>
     </header>
     <section id="searchBar">
@@ -37,20 +40,30 @@
 </script>
 
 <script id="removeCardTemplate" type="text/template">
-    <a href="#{{ card_set_id }}" class="remove">Delete</a>
+    <a href="#{{ card_set_id }}" class="remove additional-action">
+    	<span class="action-holder">
+    		<span class="icon-bg remove">&nbsp;</span>
+    	</span>
+    </a>
 </script>
 
 <script id="playerTemplate" type="text/template">
-	<div id="notification" class="ui-bar-e" data-role="header" data-position="inline">
+	<div id="notification" class="hidden">
 		<p></p>
-		<a href="#" data-icon="delete" id="closeNotification" class="ui-btn-right">Hide</a>
+		<a href="#" id="closeNotification" class="float-right">Hide</a>
 	</div>
 	
 	<header class="black-gradient">
     	<div class="dotted-line">
-        	<a href="#" id="back" class="action-button">Back</a>
+        	<a href="#" id="back" class="action-button btn-left">
+        		<span class="icon-bg back">&nbsp;</span>
+        		<span class="text">Back</span>
+        	</a>
         	<h1 title="{{ title }}">{{ title }}</h1>
-        	<a href="#" id="add" class="action-button">Add</a>
+        	<a href="#" id="add" class="action-button btn-right">
+        		<span class="icon-bg add">&nbsp;</span>
+        		<span class="text">Add</span>
+        	</a>
     	</div>
     </header>
 	<nav class="pager">
@@ -59,17 +72,18 @@
 	        <li id="next" class="next"><a>Next<span class="arrow">&nbsp;</span></a>
 	    </ul>
 	</nav>
+    <div id="card"></div>
 
-    <div data-role="content">
-        <div id="card"></div>
-    </div>
  </script>
 
 
 <script id="cardTemplate" type="text/template">
-    <div data-role="collapsible">
-        <h3>{{ question }}</h3>
-        <p> {{ answer }}</p>
+    <div id="collapser">
+        <h3>
+        	<span class="icon-bg plus">&nbsp;</span>
+        	<span class="question">{{ question }}</span>
+        </h3>
+        <p class="hidden"> {{ answer }}</p>
     </div>
 </script>
 

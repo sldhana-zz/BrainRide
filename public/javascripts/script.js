@@ -296,7 +296,8 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 		'click #next' : 'getNextCard',
 		'click #back' : 'showSearchResults',
 		'click #add' : 'addToLibrary',
-		'click #closeNotification': 'hideNotification'
+		'click #closeNotification': 'hideNotification',
+		'click h3': 'showAnswer'
 	},
 
 	render : function() {
@@ -321,6 +322,12 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 		} else {
 			$('#previous').removeClass('ui-disabled');
 		}
+	},
+	
+	showAnswer: function(event){
+		var currentTarget = event.currentTarget;
+		var currentState = $('.icon-bg', currentTarget).attr();
+		$(currentTarget).next('p').toggle();
 	},
 
 	showSearchResults : function() {
@@ -360,11 +367,11 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 	
 	showNotification: function(message){
 		$('#notification p').html(message);
-		$('#notification').slideDown('slow');
+		$('#notification').removeClass('hidden')
 	},
 	
 	hideNotification: function(){
-		$('#notification').slideUp('fast');
+		$('#notification').addClass('hidden');
 	}
 });
 
