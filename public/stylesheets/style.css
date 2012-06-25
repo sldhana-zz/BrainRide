@@ -386,3 +386,13 @@ input[type="text"], .text-input{
 .remove{
 	background-position: -72px 50%;
 }
+
+/* notification */
+#notification{
+	width: 96%;
+	padding: 10px 2%;
+	background: #F2F1BF;
+	float: left;
+}
+
+
