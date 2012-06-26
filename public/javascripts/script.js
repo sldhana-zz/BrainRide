@@ -44,11 +44,11 @@ BrainRide.Views.Header = Backbone.View.extend({
 	},
 
 	events : {
-		'click #termSearch' : 'getSearchTerm',
-		'click #search' : 'showSearch',
-		'click #previousResults' : 'paginatePrevious',
-		'click #nextResults' : 'paginateNext',
-		'click #myCards' : 'getSavedCards'
+		'tap #termSearch' : 'getSearchTerm',
+		'tap #search' : 'showSearch',
+		'tap #previousResults' : 'paginatePrevious',
+		'tap #nextResults' : 'paginateNext',
+		'tap #myCards' : 'getSavedCards'
 	},
 
 	getSearchTerm : function(e) {
@@ -233,8 +233,8 @@ BrainRide.Views.CardSetItem = Backbone.View.extend({
 		this.render();
 	},
 	events : {
-		'click .cardSet' : 'getCardSet',
-		'click .remove' : 'removeCardSet'
+		'tap .cardSet' : 'getCardSet',
+		'tap .remove' : 'removeCardSet'
 	},
 
 	render : function() {
@@ -298,12 +298,12 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 		this.render();
 	},
 	events : {
-		'click #previous' : 'getPreviousCard',
-		'click #next' : 'getNextCard',
-		'click #back' : 'showSearchResults',
-		'click #add' : 'addToLibrary',
-		'click #closeNotification': 'hideNotification',
-		'click h3': 'showAnswer'
+		'tap #previous' : 'getPreviousCard',
+		'tap #next' : 'getNextCard',
+		'tap #back' : 'showSearchResults',
+		'tap #add' : 'addToLibrary',
+		'tap #closeNotification': 'hideNotification',
+		'tap h3': 'showAnswer'
 	},
 
 	render : function() {
@@ -315,18 +315,18 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 	getPreviousCard : function() {
 		var hasNoPrevious = BrainRide.player.previousFlashCard();
 		if(hasNoPrevious) {
-			$('#previous a').addClass('disabled');
+			$('#previous').addClass('disabled');
 		} else {
-			$('#next a').removeClass('disabled');
+			$('#next').removeClass('disabled');
 		}
 	},
 
 	getNextCard : function() {
 		var hasNoNext = BrainRide.player.nextFlashCard();
 		if(hasNoNext) {
-			$('#next a').addClass('disabled');
+			$('#next').addClass('disabled');
 		} else {
-			$('#previous a').removeClass('disabled');
+			$('#previous').removeClass('disabled');
 		}
 	},
 	
@@ -364,10 +364,10 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 		if(BrainRide.library.where({
 			card_set_id : id
 		}).length === 0) {
-			this.showNotification('Flash card has been added to library.');
+			this.showNotification('Added to library.');
 			BrainRide.library.create(this.model.attributes);
 		} else {
-			this.showNotification('Looks like you already have this in your library.');
+			this.showNotification('Already in!');
 		}
 	},
 	
@@ -681,3 +681,13 @@ BrainRide.Routes.Application = Backbone.Router.extend({
 $(document).ready(function() {
 	BrainRide.init();
 });
+
+(function($) {
+    // only do this if not on a touch device
+    if (!('ontouchend' in window)) {
+        $(document).delegate('body', 'click', function(e) {
+            $(e.target).trigger('tap');
+        });
+    }
+})(window.Zepto);
+

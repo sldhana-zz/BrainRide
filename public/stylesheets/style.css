@@ -54,7 +54,7 @@ header h1{
 	text-align: center;
 	text-overflow: ellipsis;
 	margin: 5px 30% 5px 30%;
-	font-size: 1em;
+	font-size: 0.9em;
 	white-space: nowrap;
 }
 
@@ -402,9 +402,21 @@ input[type="search"]{
 /* notification */
 #notification{
 	width: 96%;
+	height: 30px;
 	padding: 10px 2%;
 	background: #F2F1BF;
 	float: left;
+	font-size: 0.8em;
+	position: relative;
 }
 
+#notification p{
+	position: absolute;
+	left: 20px;
+	margin: 5px 0 0 0;
+}
+
+#notification a{
+	position: absolute;
+}
 
