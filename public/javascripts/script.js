@@ -69,23 +69,29 @@ BrainRide.Views.Header = Backbone.View.extend({
 
 	query : function(searchTerm) {
 		var self = this;
+		var direction = this.paginator.get('paginateDirection');
+		
+		if((direction === BrainRide.Constants.pagination.PREVIOUS && this.paginator.get('currentPagination') > 1)
+		|| (direction=== BrainRide.Constants.pagination.NEXT && this.paginator.get('currentPagination') < this.paginator.get('totalPages'))
+		|| (direction === BrainRide.Constants.pagination.DEFAULT)){
+			BrainRide.searcher.fetch({
+				params : {
+					query : searchTerm,
+					paginator : this.paginator
+				},
 
-		BrainRide.searcher.fetch({
-			params : {
-				query : searchTerm,
-				paginator : this.paginator
-			},
+				success : function(data) {
+					self.renderCollection({
+						data : data,
+						personalCollection : false
+					});
 
-			success : function(data) {
-				self.renderCollection({
-					data : data,
-					personalCollection : false
-				});
+				},
+				error : function(data) {
+				}
+			}); 
 
-			},
-			error : function(data) {
-			}
-		});
+		}
 	},
 
 	paginatePrevious : function() {
@@ -139,7 +145,7 @@ BrainRide.Views.Header = Backbone.View.extend({
 
 			//hide pager because we want to show all results
 			if(personalCollection) {
-				$('#pager').addClass('hidden');
+				$('.pager').addClass('hidden');
 			}
 		} else {
 			new BrainRide.Views.NoResults();
@@ -157,7 +163,7 @@ BrainRide.Views.NoResults = Backbone.View.extend({
 
 	render : function() {
 		$(this.el).html(this._template);
-		$('#content #pager').addClass('hidden');
+		$('#content .pager').addClass('hidden');
 		return this;
 	}
 });
@@ -189,7 +195,7 @@ BrainRide.Views.CardSets = Backbone.View.extend({
 		});
 
 		$(this.el).append(els);
-		$('#content #pager').removeClass('hidden');
+		$('#content .pager').removeClass('hidden');
 
 		this.setupPagination();
 		return this;
@@ -309,18 +315,18 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 	getPreviousCard : function() {
 		var hasNoPrevious = BrainRide.player.previousFlashCard();
 		if(hasNoPrevious) {
-			$('#previous').addClass('disabled');
+			$('#previous a').addClass('disabled');
 		} else {
-			$('#next').removeClass('disabled');
+			$('#next a').removeClass('disabled');
 		}
 	},
 
 	getNextCard : function() {
 		var hasNoNext = BrainRide.player.nextFlashCard();
 		if(hasNoNext) {
-			$('#next').addClass('disabled');
+			$('#next a').addClass('disabled');
 		} else {
-			$('#previous').removeClass('disabled');
+			$('#previous a').removeClass('disabled');
 		}
 	},
 	
@@ -536,7 +542,7 @@ BrainRide.Collections.Search = Backbone.Collection.extend({
 		options || ( options = {});
 		this.query = options.params.query;
 		this.paginator = options.params.paginator;
-
+		
 		//call Backbone's own fetch
 		//Backbone.Collection.prototype.fetch.call(this, options);
 		Backbone.Collection.prototype.fetch.call(this, options);
@@ -560,6 +566,7 @@ BrainRide.Collections.Search = Backbone.Collection.extend({
 				if(currentPagination > 1) {
 					this.paginator.set('currentPagination', currentPagination - 1);
 				}
+
 				break;
 			case paginationConstants.DEFAULT:
 				this.paginator.set('currentPagination', 1);
