@@ -4,7 +4,7 @@
     "private": true,
     "dependencies": {
         "express": "2.5.5",
-        "ejs": "0.0.1",
+        "ejs": ">= 0.0.1",
         "request": ">= 2.9.202",
         "redis": ">= 0.7.2",
         "redis-url": ">= 0.1.0"
