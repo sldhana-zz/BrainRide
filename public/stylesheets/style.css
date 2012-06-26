@@ -296,7 +296,6 @@ input[type="text"], .text-input{
 	padding: 0 2% 0 0;
 }
 
-
 .pager ul li:last-child a{
 	border-right: none;
 }
@@ -324,6 +323,12 @@ input[type="text"], .text-input{
 	float: right;
 	margin-left: 5px;
 	background-position: -108px 50%;
+}
+
+.pager .disabled{
+    -webkit-opacity: 0.5;
+    -moz-opacity: 0.5;
+    opacity: 0.5; 
 }
 
 /* collapser */

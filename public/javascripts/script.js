@@ -139,7 +139,7 @@ BrainRide.Views.Header = Backbone.View.extend({
 
 			//hide pager because we want to show all results
 			if(personalCollection) {
-				$('#pager').addClass('ui-screen-hidden');
+				$('#pager').addClass('hidden');
 			}
 		} else {
 			new BrainRide.Views.NoResults();
@@ -157,7 +157,7 @@ BrainRide.Views.NoResults = Backbone.View.extend({
 
 	render : function() {
 		$(this.el).html(this._template);
-		$('#content #pager').addClass('ui-screen-hidden');
+		$('#content #pager').addClass('hidden');
 		return this;
 	}
 });
@@ -189,7 +189,7 @@ BrainRide.Views.CardSets = Backbone.View.extend({
 		});
 
 		$(this.el).append(els);
-		$('#content #pager').removeClass('ui-screen-hidden');
+		$('#content #pager').removeClass('hidden');
 
 		this.setupPagination();
 		return this;
@@ -198,17 +198,17 @@ BrainRide.Views.CardSets = Backbone.View.extend({
 	setupPagination : function() {
 		var paginationConstants = BrainRide.Constants.pagination;
 		if(this.paginator.get('paginateDirection') === paginationConstants.NEXT) {
-			$('#previousResults').removeClass('ui-disabled');
+			$('#previousResults').removeClass('disabled');
 		}
 		if(this.paginator.get('paginateDirection') === paginationConstants.PREVIOUS) {
-			$('#nextResults').removeClass('ui-disabled');
+			$('#nextResults').removeClass('disabled');
 		}
 
 		if(this.paginator.get('currentPagination') === this.paginator.get('totalPages')) {
-			$('#nextResults').addClass('ui-disabled');
+			$('#nextResults').addClass('disabled');
 		}
 		if(this.paginator.get('currentPagination') === 1) {
-			$('#previousResults').addClass('ui-disabled');
+			$('#previousResults').addClass('disabled');
 		}
 	}
 });
@@ -309,18 +309,18 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 	getPreviousCard : function() {
 		var hasNoPrevious = BrainRide.player.previousFlashCard();
 		if(hasNoPrevious) {
-			$('#previous').addClass('ui-disabled');
+			$('#previous').addClass('disabled');
 		} else {
-			$('#next').removeClass('ui-disabled');
+			$('#next').removeClass('disabled');
 		}
 	},
 
 	getNextCard : function() {
 		var hasNoNext = BrainRide.player.nextFlashCard();
 		if(hasNoNext) {
-			$('#next').addClass('ui-disabled');
+			$('#next').addClass('disabled');
 		} else {
-			$('#previous').removeClass('ui-disabled');
+			$('#previous').removeClass('disabled');
 		}
 	},
 	
