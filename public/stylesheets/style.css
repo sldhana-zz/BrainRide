@@ -162,13 +162,13 @@ header a{
 }
 
 /* input elements */
-input[type="text"], .text-input{
+input[type="search"]{
 	width: 98%;
 	padding: 0.4em 1em;
 	background: none;
 	border: none;
 	margin: 0 0 0 20px;
-	
+	-webkit-appearance: none; 
 }
 
 
@@ -329,9 +329,9 @@ input[type="text"], .text-input{
 }
 
 .pager .disabled{
-    -webkit-opacity: 0.8;
-    -moz-opacity: 0.8;
-    opacity: 0.8; 
+    -webkit-opacity: 0.4;
+    -moz-opacity: 0.4;
+    opacity: 0.4; 
 }
 
 .pager .disabled a{
