@@ -21,7 +21,6 @@ exports.getSearchData = function(options, redisClient, callback) {
             request(urlSearch, function(error, response, body) {
                 if(!error && response.statusCode === 200) {
                     parsedBody = JSON.parse(body);
-                    console.log(parsedBody);
                     if(parsedBody.results.meta.total !== '') {
                         var results = JSON.parse(body).results;
                         var term = searchTerm + '_' + currentPage;
@@ -35,7 +34,6 @@ exports.getSearchData = function(options, redisClient, callback) {
                 }
             });
         } else {
-            console.log("in here cached");
             redisClient.get(searchTerm + '_' + currentPage, function(err, reply) {
                 callback(JSON.parse(reply).results);
             });
