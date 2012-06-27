@@ -47,6 +47,8 @@ BrainRide.Views.Header = Backbone.View.extend({
 		'tap #termSearch' : 'getSearchTerm',
 		'tap #search' : 'showSearch',
 		'tap #previousResults' : 'paginatePrevious',
+		'swipeLeft #content': 'paginatePrevious',
+		'swipeRight #content': 'paginateNext',
 		'tap #nextResults' : 'paginateNext',
 		'tap #myCards' : 'getSavedCards'
 	},
@@ -178,7 +180,7 @@ BrainRide.Views.CardSets = Backbone.View.extend({
 		this.paginator = options.paginator;
 		this.render();
 	},
-
+	
 	render : function() {
 		$(this.el).empty();
 

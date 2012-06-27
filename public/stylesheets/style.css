@@ -20,6 +20,7 @@ section{
 .btn-right{right: 10px;}
 .btn-left{left: 10px;}
 .hidden{display: none;}
+.clear{clear: both;}
 
 /* gradients */
 .black-gradient{
@@ -53,6 +54,7 @@ header h1{
 	display: block;
 	text-align: center;
 	text-overflow: ellipsis;
+	overflow: hidden;
 	margin: 5px 30% 5px 30%;
 	font-size: 0.9em;
 	white-space: nowrap;
@@ -90,6 +92,7 @@ header a{
 	text-shadow: 0 1px 1px #194B7E;
 	border: 1px solid #044062;
 	outline: none;
+	display: block;
 	background: #66A1CC;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#66A1CC), to(#3A6C9F));
    	background-image: -webkit-linear-gradient(top, #66A1CC, #3A6C9F); 
@@ -140,7 +143,11 @@ header a{
 }
 
 .searchArea{
-	padding: 4px 5px;
+	/*padding: 4px 5px;*/
+	width: 100%;
+	height: 30px;
+	float: left;
+	padding: 4px 0;
 	margin: 0 0 10px 0;
 	-moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
 	-webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2) inset;
@@ -163,14 +170,18 @@ header a{
 
 /* input elements */
 input[type="search"]{
-	width: 98%;
-	padding: 0.4em 1em;
+	width: 92%;
+	padding: 0.4em 0;
 	background: none;
 	border: none;
-	margin: 0 0 0 20px;
 	-webkit-appearance: none; 
+	position: absolute;
+	left: 30px;
 }
 
+input[type="search"]:focus{
+	outline: none;
+}
 
 /* list view */
 
