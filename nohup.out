@@ -1,0 +1,2 @@
+[668] 26 Jun 10:09:58 # Warning: no config file specified, using the default config. In order to specify a config file use 'redis-server /path/to/redis.conf'
+[668] 26 Jun 10:09:58 # Opening port 6379: bind: Address already in use
