@@ -61,6 +61,11 @@ header h1{
 	white-space: nowrap;
 }
 
+header h1 img{
+    vertical-align: middle;
+    margin: 0 5px 0 0;
+}
+
 header a{
 	position: absolute;
 	top: 5px;
