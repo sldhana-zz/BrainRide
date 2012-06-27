@@ -47,8 +47,8 @@ BrainRide.Views.Header = Backbone.View.extend({
 		'tap #termSearch' : 'getSearchTerm',
 		'tap #search' : 'showSearch',
 		'tap #previousResults' : 'paginatePrevious',
-		'swipeLeft #content': 'paginatePrevious',
-		'swipeRight #content': 'paginateNext',
+		'swipeLeft #content': 'paginateNext',
+		'swipeRight #content': 'paginatePrevious',
 		'tap #nextResults' : 'paginateNext',
 		'tap #myCards' : 'getSavedCards'
 	},
@@ -303,6 +303,8 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 		'tap #previous' : 'getPreviousCard',
 		'tap #next' : 'getNextCard',
 		'tap #back' : 'showSearchResults',
+		'swipeLeft #player': 'getNextCard',
+		'swipeRight #player': 'getPreviousCard',
 		'tap #add' : 'addToLibrary',
 		'tap #closeNotification': 'hideNotification',
 		'tap h3': 'showAnswer'
