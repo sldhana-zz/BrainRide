@@ -56,7 +56,7 @@ redisClient.on('error', function(err){
 
 app.get('/', function(req, res){
     res.render('index', {
-        title: 'Search'
+        title: 'BrainRide'
     });
 });
 
