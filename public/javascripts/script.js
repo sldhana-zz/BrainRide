@@ -313,6 +313,7 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 	render : function() {
 		$('#' + this.id).remove();
 		$(this.el).html(this._template(this.options));
+		this.resizePlayerHeight();
 		return this;
 	},
 
@@ -382,6 +383,11 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 	
 	hideNotification: function(){
 		$('#notification').addClass('hidden');
+	},
+	
+	resizePlayerHeight: function(){
+		var height = $(window).height();
+		$(this.el).css('height', height);
 	}
 });
 
