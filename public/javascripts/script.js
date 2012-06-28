@@ -236,7 +236,8 @@ BrainRide.Views.CardSetItem = Backbone.View.extend({
 	},
 	events : {
 		'tap .cardSet' : 'getCardSet',
-		'tap .remove' : 'removeCardSet'
+		'tap .remove' : 'removeCardSet',
+		'contextMenu': 'disableRightClick'
 	},
 
 	render : function() {
@@ -273,6 +274,10 @@ BrainRide.Views.CardSetItem = Backbone.View.extend({
 
 	removeCardSet : function() {
 		this.model.remove();
+	},
+	
+	disableRightClick: function(){
+		return false;
 	}
 });
 
@@ -344,22 +349,6 @@ BrainRide.Views.FlashCardPlayer = Backbone.View.extend({
 	showSearchResults : function() {
         $('#content').show();
         $('#player').hide();	
-		/*$('#results').empty();
-		
-		$.mobile.changePage($('#content'), {
-			//reverse : true
-		});
-		$('.ui-page-active').removeClass('ui-page-active');
-		$('#content').addClass('ui-page-active').show();
-		$('#termSearch').trigger('vmouseup');
-		*/
-		/*
-		$.mobile.changePage($('#content'), {
-			//reverse : true
-		});
-		$('.ui-page-active').removeClass('ui-page-active');
-		$('#content').addClass('ui-page-active').show();
-		*/
 	},
 
 	addToLibrary : function() {
@@ -658,33 +647,10 @@ BrainRide.Routes.Application = Backbone.Router.extend({
 	},
 
 	showView : function(page) {
-		
-		//$(page.el).attr('data-role', 'page');
 		page.render();
 		$('#content').hide();
 		$('body').append($(page.el));
-
-		//var transition = $.mobile.defaultPageTransition;
-		/*
-		if(this.firstPage){
-			transition = 'none';
-			this.firstPage = false;	
-		}*/
-		
-		/*$.mobile.changePage($(page.el), {
-			changeHash : false,
-			transition : transition,
-			allowSamePageTransition: true
-		});
-		*/
 		$(page.el).show();
-		
-		//<div id="content" data-role="page" tabindex="0" class="ui-page ui-body-c ui-page-active" style="min-height: 408px;">
-		//<div id="content" data-role="page" class="ui-page ui-body-c ui-page-active">
-		/*$(page.el).attr('data-role', 'page').attr('class', 'ui-page ui-body-c ui-page-active').attr('tabindex', 0);
-		page.render();
-		$('body').append($(page.el));
-		*/
 	}
 })
 
